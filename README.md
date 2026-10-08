@@ -1,7 +1,8 @@
 # Wolkensprung
 
-Ein eigenes kleines Jump-and-Run mit drei Leveln, Gegnern, Sprungplattformen,
-Münzen, Checkpoints und einer Zielflagge. Grafik wird direkt gezeichnet; es
+Ein eigenes Jump-and-Run mit zehn unterschiedlichen, zunehmend längeren Leveln,
+animierter Spielfigur, Farbverläufen, mehreren Hintergrundebenen, Partikeleffekten,
+Münzen, zwei Checkpoints pro Level und einer Zielflagge. Grafik wird direkt gezeichnet; es
 werden keine Nintendo-Dateien oder externen Assets benötigt.
 
 ## Windows
@@ -25,8 +26,20 @@ Linux nicht gebaut oder auf Windows getestet.
 - Enter: starten / nächstes Level
 - Escape: beenden
 
-Springe auf Gegner, sammle Münzen und erreiche die Flagge. Jeder neue Level
-füllt die drei Leben auf. Ein orangefarbener Pfosten aktiviert den Checkpoint.
+Springe auf normale Gegner, sammle Münzen und erreiche die Flagge. Ab Level 3
+gibt es Bodenstacheln, ab Level 4 bewegliche Bonusplattformen und ab Level 6
+gepanzerte Gegner: Diese immer überspringen, nicht auf sie treten!
+Shift gedrückt halten für größere Sprünge über die Schluchten.
+Jeder neue Level füllt die vier Leben auf. Zwei orangefarbene Pfosten aktivieren
+Checkpoints. Nach einem Game Over startet Enter nur den aktuellen Level neu;
+R setzt die gesamte Reise zurück. Die Strecken wachsen von 4.800 auf 9.120 Pixel.
+
+Die zehn Welten: Sonnenwiese, Pilzpfad, Bernsteinküste, Windige Höhen,
+Dämmerwald, Kristalltal, Frostpass, Sternenschlucht, Glutberge, Himmelsfestung.
+
+Der Smoke-Test prüft Spielmechanik, Rendering aller Welten und die physikalische
+Erreichbarkeit aller 113 Pflichtsprünge. Er ersetzt keinen vollständigen
+menschlichen Spieldurchlauf und keinen Windows-Test.
 
 ## Entwicklung
 
