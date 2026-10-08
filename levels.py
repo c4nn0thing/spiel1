@@ -33,13 +33,14 @@ def make_level(index):
         x += width + rng.randint(80 + index * 5, 110 + index * 6)
         previous_y = y
     checkpoints = [ground[len(ground)//3].x + 45, ground[2*len(ground)//3].x + 45]
-    coins, enemies, spikes, bonus, moving = [], [], [], [], []
+    coins, enemies, spikes, bonus, moving, walls = [], [], [], [], [], []
     for i, p in enumerate(ground):
         if i and i < len(ground)-1:
             enemy_x = p.x + p.w * 0.65
             enemies.append({'rect': pygame.Rect(enemy_x, p.y-28, 32, 28),
                             'x': enemy_x, 'dir': -1, 'left': p.x+140,
                             'right': p.right-35, 'speed': 65 + index*9,
+                            'hp': 2 if index >= 5 and i % 3 == 0 else 1,
                             'armored': index >= 5 and i % 3 == 0})
             if index >= 2 and i % 2 == 1:
                 spikes.append(pygame.Rect(p.x + p.w//2 - 22, p.y-18, 44 + index*2, 18))
@@ -55,5 +56,9 @@ def make_level(index):
             next_p = ground[i+1]
             gap_middle = (p.right + next_p.x)//2
             coins.append(pygame.Rect(gap_middle, min(p.y,next_p.y)-65,16,20))
+        if i == 0 or (i % 3 == 0 and i < len(ground)-1):
+            wall = pygame.Rect(p.x + (360 if i == 0 else 100), p.y-150, 40, 150)
+            walls.append(wall)
+            coins += [pygame.Rect(wall.x+12,wall.y-34,16,20)]
     return dict(length=length, ground=ground, bonus=bonus, moving=moving,
-                coins=coins, enemies=enemies, spikes=spikes, checkpoints=checkpoints)
+                coins=coins, enemies=enemies, spikes=spikes, checkpoints=checkpoints, walls=walls)
